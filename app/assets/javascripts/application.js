@@ -12,3 +12,12 @@
 //= require backbone_datalink
 //= require backbone/viralfeed
 //= require_tree .
+
+
+$(document).ready(function() {
+    setTimeout(hideFlashMessages, 5000);
+});
+
+function hideFlashMessages() {
+  $('.alert').fadeOut(250);
+}
