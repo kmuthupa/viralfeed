@@ -28,21 +28,22 @@
 .messages-bar {
   height: 40px;
   padding: 10px;
-  margin: 10px;
+  margin: 0;
   background: #333;
   color: white;
   -moz-border-radius: 7px;
   border-radius: 7px;
-  span {
-    font-size: 1.5em;
+  .bar-head {
+    font-size: 2.0em;
     float: left;
     color: white; 
-    vertical-align: middle;
+    padding: 8px;
   }
   a {float: right;}
 }
 
 .message-form {
+  margin-top: 5px;
   -moz-border-radius: 7px;
   border-radius: 7px;
   background: #DCDCDC;
@@ -51,6 +52,7 @@
 }
 
 .message-sink {
+  margin-top: 5px;
   vertical-align: middle;
   -moz-border-radius: 7px;
   border-radius: 7px;
