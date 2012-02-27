@@ -5,6 +5,7 @@ Viralfeed::Application.routes.draw do
   match "/auth/:provider/callback" => "users#create"
   match "/auth/failure" => "users#error"
   resources :users 
+  resources :messages
 
   # Sample resource route with sub-resources:
   #   resources :products do

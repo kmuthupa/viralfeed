@@ -1,0 +1,6 @@
+%h2 Message List
+:javascript
+  $(function() {
+    window.router = new Viralfeed.Routers.MessagesRouter({messages: #{@messages.to_json.html_safe}});
+    Backbone.history.start();
+  });

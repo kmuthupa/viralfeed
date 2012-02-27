@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120227071304) do
+ActiveRecord::Schema.define(:version => 20120227092910) do
+
+  create_table "messages", :force => true do |t|
+    t.string   "title"
+    t.string   "name"
+    t.string   "message",    :limit => 3000
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "provider"

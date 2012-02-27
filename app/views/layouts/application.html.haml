@@ -13,10 +13,10 @@
           .nav-collapse
             %ul{:class => 'nav'}
               - if current_user
-                %li= "Hello, #{current_user.name}!"
+                %li= link_to("Hello, #{current_user.name}!")
                 %li= link_to('Sign out', signout_url)  
               - else
-                %li= link_to('Sign in using Twitter', 'auth/twitter')     
+                %li= link_to('Sign in using Twitter', '/auth/twitter')     
     .container
       - unless flash.empty?
         .alert
