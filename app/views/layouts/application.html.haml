@@ -6,13 +6,15 @@
     = javascript_include_tag 'application'
     = csrf_meta_tag
   %body
-    #header
-      %h1 Viral Message Board 
-    #container
-      .clear
-      #content
-        #flash_bar
+    .navbar
+      .navbar-inner
+        .container
+          %a{:href => root_url, :class => 'brand'} Viral Message Board 
+    .container
+      - unless flash.empty?
+        .alert
           - flash.each do |name, msg|
             = content_tag :div, msg, :id => "flash_#{name}" unless msg.blank?
+      .hero-unit        
         = yield
-    #footer
+      .footer

@@ -9,9 +9,10 @@ gem 'heroku'
 gem 'execjs'
 gem 'therubyracer'
 gem 'rails-backbone'
+gem 'omniauth-twitter'
 
 group :development do
-  gem "rspec-rails", "~> 2.6"
+  gem "rspec-rails", "~> 2.7"
   gem "active_reload"
 end
 
@@ -30,7 +31,7 @@ end
 group :test do
   gem 'minitest'
   gem 'turn', :require => false
-  gem "rspec-rails", "~> 2.6"
+  gem "rspec-rails", "~> 2.7"
   gem 'faker', '0.3.1'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
