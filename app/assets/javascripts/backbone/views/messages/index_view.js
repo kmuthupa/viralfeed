@@ -1,8 +1,13 @@
-Viralfeed.Views.Messages.IndexView = Backbone.View.Extend ({
-	template: JST["backbone/templates/messages/index"],
+Viralfeed.Views.Messages = Viralfeed.Views.Messages || {};
 
-	initialize: function() {
-		this.options.messages.bind('reset', this.addAll);
+Viralfeed.Views.Messages.IndexView = Backbone.View.extend ({
+	template: JST["backbone/templates/messages/index"],
+	
+	options: {},
+
+	initialize: function(options) {
+		options = options;
+		options.messages.bind('reset', this.addAll);
 	},
 
 	addAll: function() {
@@ -10,7 +15,7 @@ Viralfeed.Views.Messages.IndexView = Backbone.View.Extend ({
 	},
 
 	addOne: function() {
-		view = new Viralfeed.Views.Messages.MessageView({model : message});
+		view = new Viralfeed.Views.MessageView({model : message});
 		$("tbody").append(view.render().el);
 	},
 

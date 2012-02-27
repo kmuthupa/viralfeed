@@ -7,7 +7,7 @@ Viralfeed.Models.Message = Backbone.Model.extend({
 	}
 });
 
-Viralfeed.Collections.MessagesCollection = Backbone.Collection.Extend({
+Viralfeed.Collections.MessagesCollection = Backbone.Collection.extend({
 	model: Viralfeed.Models.Message,
 	url: '/messages'
 });

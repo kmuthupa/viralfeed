@@ -1,4 +1,6 @@
-Viralfeed.Views.Messages.NewView = Backbone.View.Extend ({
+Viralfeed.Views.Messages = Viralfeed.Views.Messages || {};
+
+Viralfeed.Views.Messages.NewView = Backbone.View.extend ({
 	template: JST["backbone/templates/messages/new"],
 
 	events:	{"submit #new-message": "save"},

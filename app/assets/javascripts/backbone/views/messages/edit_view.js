@@ -1,4 +1,6 @@
-Viralfeed.Views.Messages.EditView = Backbone.View.Extend ({
+Viralfeed.Views.Messages = Viralfeed.Views.Messages || {};
+
+Viralfeed.Views.Messages.EditView = Backbone.View.extend ({
   template: JST["backbone/templates/messages/edit"],
   
   events: {"submit #edit-message" : "update"},
