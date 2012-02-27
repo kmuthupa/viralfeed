@@ -3,6 +3,7 @@ Viralfeed::Application.routes.draw do
   match "/signin" => 'users#signin'
   match "/signout" => 'users#signout'
   match "/auth/:provider/callback" => "users#create"
+  match "/auth/failure" => "users#error"
   resources :users 
 
   # Sample resource route with sub-resources:

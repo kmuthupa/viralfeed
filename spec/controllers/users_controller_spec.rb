@@ -33,4 +33,10 @@ describe UsersController do
     get 'signout'
     response.should be_redirect
   end
+  
+  it '#error' do
+    get 'error'
+    response.should be_success
+    response.should render_template(:error)
+  end
 end
