@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    %title Viral Message Board
+    %title A Message Board using Rails and BackBone
     = stylesheet_link_tag 'application'
     = javascript_include_tag 'application'
     = csrf_meta_tag
@@ -9,7 +9,8 @@
     .navbar
       .navbar-inner
         .container
-          %a{:href => root_url, :class => 'brand'} Viral Message Board
+          %a{:href => root_url, :class => 'brand'} 
+            = header(current_user)
           .nav-collapse
             %ul{:class => 'nav'}
               - if current_user
