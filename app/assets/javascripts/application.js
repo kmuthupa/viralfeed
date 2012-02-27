@@ -19,5 +19,5 @@ $(document).ready(function() {
 });
 
 function hideFlashMessages() {
-  $('.alert').fadeOut(250);
+  $('.alert').slideUp(350);
 }
