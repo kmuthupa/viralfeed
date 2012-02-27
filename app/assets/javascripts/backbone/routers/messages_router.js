@@ -6,31 +6,33 @@ Viralfeed.Routers.MessagesRouter = Backbone.Router.extend({
 		"/:id"      : "show",
 		".*"        : "index"
 	},
-
+	
+	messages: {},
+	
 	initialize: function(options) {
-		@messages = new Viralfeed.Collections.MessagesCollection();
-		@messages.reset(options.messages);
+		this.messages = new Viralfeed.Collections.MessagesCollection();
+		this.messages.reset(options.messages);
 	},
 
 	newMessage: function() {
-		@view = new Viralfeed.Views.Messages.NewView({collection: @messages});
-		$("#messages").html(@view.render().el);
+		view = new Viralfeed.Views.Messages.NewView({collection: this.messages});
+		$("#messages").html(view.render().el);
 	},
 
 	index: function() {
-		@view = new Viralfeed.Views.Messages.IndexView({messages: @messages});
-		$("#messages").html(@view.render().el);
+		view = new Viralfeed.Views.Messages.IndexView({messages: this.messages});
+		$("#messages").html(view.render().el);
 	},
 
 	show: function(id) {
-		message = @messages.get(id);
-		@view = new Viralfeed.Views.Messages.ShowView({model: message});
-		$("#messages").html(@view.render().el);
+		message = this.messages.get(id);
+		view = new Viralfeed.Views.Messages.ShowView({model: message});
+		$("#messages").html(view.render().el);
 	},
 
 	edit: function(id) {
-		message = @messages.get(id)
-		@view = new Viralfeed.Views.Messages.EditView({model: message})
-		$("#messages").html(@view.render().el)
+		message = this.messages.get(id)
+		view = new Viralfeed.Views.Messages.EditView({model: message})
+		$("#messages").html(view.render().el)
 	}
 });
