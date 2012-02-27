@@ -1,19 +1,18 @@
-Viralfeed.Views.Messages ||= {}
+Viralfeed.Views.Messages.MessageView = Backbone.View.Extend ({
+	template : JST["backbone/templates/messages/message"],
 
-class Viralfeed.Views.Messages.MessageView extends Backbone.View
-  template: JST["backbone/templates/messages/message"]
+	events:	{"click .destroy" : "destroy"},
 
-  events:
-    "click .destroy" : "destroy"
+	tagName: "li",
 
-  tagName: "tr"
+	destroy: function(e) {
+		@model.destroy();
+		this.remove();
+		return false;
+	},
 
-  destroy: () ->
-    @model.destroy()
-    this.remove()
-
-    return false
-
-  render: ->
-    $(@el).html(@template(@model.toJSON() ))
-    return this
+	render: function(e) {
+		$(@el).html(@template(@model.toJSON()));
+		return this;
+	}	
+});

@@ -1,11 +1,13 @@
-class Viralfeed.Models.Message extends Backbone.Model
-  paramRoot: 'message'
+Viralfeed.Models.Message = Backbone.Model.extend({
+	paramRoot: 'message',
+	defaults: {
+		'title': null,
+		'name': null,
+		'message': null
+	}
+});
 
-  defaults:
-    title: null
-    name: null
-    message: null
-
-class Viralfeed.Collections.MessagesCollection extends Backbone.Collection
-  model: Viralfeed.Models.Message
-  url: '/messages'
+Viralfeed.Collections.MessagesCollection = Backbone.Collection.Extend({
+	model: Viralfeed.Models.Message,
+	url: '/messages'
+});

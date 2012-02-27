@@ -1,8 +1,9 @@
-Viralfeed.Views.Messages ||= {}
+Viralfeed.Views.Messages.ShowView = Backbone.View.Extend ({
+	template : JST["backbone/templates/messages/show"],
 
-class Viralfeed.Views.Messages.ShowView extends Backbone.View
-  template: JST["backbone/templates/messages/show"]
+	render: function() {
+		$(@el).html(@template(@model.toJSON()));
+		return this;
+	}
 
-  render: ->
-    $(@el).html(@template(@model.toJSON() ))
-    return this
+});

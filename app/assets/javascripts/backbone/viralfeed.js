@@ -4,8 +4,9 @@
 #= require_tree ./views
 #= require_tree ./routers
 
-window.Viralfeed =
-  Models: {}
-  Collections: {}
-  Routers: {}
+window.Viralfeed = {
+  Models: {},
+  Collections: {},
+  Routers: {},
   Views: {}
+};

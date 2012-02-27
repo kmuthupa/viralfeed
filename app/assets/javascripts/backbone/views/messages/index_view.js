@@ -1,20 +1,22 @@
-Viralfeed.Views.Messages ||= {}
+Viralfeed.Views.Messages.IndexView = Backbone.View.Extend ({
+	template : JST["backbone/templates/messages/index"],
 
-class Viralfeed.Views.Messages.IndexView extends Backbone.View
-  template: JST["backbone/templates/messages/index"]
+	initialize: function() {
+		@options.messages.bind('reset', @addAll);
+	},
 
-  initialize: () ->
-    @options.messages.bind('reset', @addAll)
+	addAll: function() {
+		@options.messages.each(@addOne);
+	},
 
-  addAll: () =>
-    @options.messages.each(@addOne)
+	addOne: function() {
+		view = new Viralfeed.Views.Messages.MessageView({model : message});
+		@$("tbody").append(view.render().el);
+	},
 
-  addOne: (message) =>
-    view = new Viralfeed.Views.Messages.MessageView({model : message})
-    @$("tbody").append(view.render().el)
-
-  render: =>
-    $(@el).html(@template(messages: @options.messages.toJSON() ))
-    @addAll()
-
-    return this
+	render: function() {
+		$(@el).html(@template({messages: @options.messages.toJSON()}));
+		@addAll();
+		return this;
+	}
+});
