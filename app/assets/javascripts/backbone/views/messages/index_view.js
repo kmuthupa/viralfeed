@@ -9,14 +9,19 @@ Viralfeed.Views.Messages.IndexView = Backbone.View.extend ({
 		options = options;
 		options.messages.bind('reset', this.addAll);
 	},
-
-	addAll: function() {
-		this.options.messages.each(this.addOne);
+	
+	addOne: function(message) {
+		view = new Viralfeed.Views.Messages.MessageView({model: message});
+		$(this.el).find(".messages-list").append(view.render().el);
 	},
-
-	addOne: function() {
-		view = new Viralfeed.Views.MessageView({model : message});
-		$("tbody").append(view.render().el);
+	
+	addAll: function() {
+		var idx = 0;
+		while(idx < this.options.messages.length) {
+			msg = this.options.messages.at(idx);
+			this.addOne(msg);
+			idx++;
+		}		
 	},
 
 	render: function() {

@@ -1,7 +1,7 @@
-<td><%= title %></td>
-<td><%= name %></td>
-<td><%= message %></td>
-
-<td><a href="#/<%= id %>">Show</td>
-<td><a href="#/<%= id %>/edit">Edit</td>
-<td><a href="#/<%= id %>/destroy" class="destroy">Destroy</a></td>
+<div class='message-container'>
+  <a href="#/<%= id %>/edit"><img src='/assets/edit.png' height='32' width='32'></img></a>
+  <%= title %>
+  <%= name %>
+  <%= message %>
+  <a href="#/<%= id %>/destroy" class="destroy"><img src='/assets/delete.png' height='32' width='32'></img></a>
+</div>

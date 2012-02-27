@@ -1,25 +1,28 @@
-<h1>New message</h1>
+<div class='messages-bar'>
+  <span>Posts</span>
+  <a class='btn btn-primary btn-large' href="#/index">Back to Posts</a>
+</div>
 
+<div class='message-form'>
+<h2>Submit a new Posting</h2>
 <form id="new-message" name="message">
   <div class="field">
-    <label for="title"> title:</label>
+    <label for="title"> Title</label>
     <input type="text" name="title" id="title" value="<%= title %>" >
   </div>
 
   <div class="field">
-    <label for="name"> name:</label>
+    <label for="name"> Name</label>
     <input type="text" name="name" id="name" value="<%= name %>" >
   </div>
 
   <div class="field">
-    <label for="message"> message:</label>
-    <input type="text" name="message" id="message" value="<%= message %>" >
+    <label for="message"> Message</label>
+    <textarea name="message" id="message"><%= message %></textarea>
   </div>
 
   <div class="actions">
-    <input type="submit" value="Create Message" />
+    <input type="submit" value="Submit"/>
   </div>
-
 </form>
-
-<a href="#/index">Back</a>
+</div>

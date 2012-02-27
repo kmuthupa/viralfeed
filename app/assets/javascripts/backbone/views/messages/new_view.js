@@ -22,7 +22,7 @@ Viralfeed.Views.Messages.NewView = Backbone.View.extend ({
 	        { 
 		      success: function(message) {
 		      this.model = message;
-		      window.location.hash = "/#{@model.id}"; 
+		      window.location.hash = "/"+this.model.id; 
 		      },
 	          error: function(message, jqXHR) {
 	          this.model.set({errors: $.parseJSON(jqXHR.responseText)});
