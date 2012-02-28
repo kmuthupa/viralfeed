@@ -11,7 +11,6 @@ Viralfeed.Views.Messages.NewView = Backbone.View.extend ({
 
 	initialize: function(options) {
 		this.model = new this.collection.model();
-		this.model.bind("change:errors", this.render());
     },
 
     save: function(e) {
@@ -21,11 +20,11 @@ Viralfeed.Views.Messages.NewView = Backbone.View.extend ({
 	    this.collection.create(this.model.toJSON(),
 	        { 
 		      success: function(message) {
-		      this.model = message;
-		      window.location.hash = "/"+this.model.id; 
+		        this.model = message;
+		        window.location.hash = "/"+this.model.id; 
 		      },
 	          error: function(message, jqXHR) {
-	          this.model.set({errors: $.parseJSON(jqXHR.responseText)});
+                window.Viralfeed.displayFormError();
 	        }}
 	    );
     },

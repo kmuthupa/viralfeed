@@ -10,11 +10,14 @@ Viralfeed.Views.Messages.EditView = Backbone.View.extend ({
   update: function(e) {
 	e.preventDefault();
 	e.stopPropagation();
-	this.model.save({
+	this.model.save({},{
 		success: function(message) {
 		  this.model = message;
 		  window.location.hash = "/"+this.model.id;
-		}
+		},
+		error: function(message, jqXHR) {
+          window.Viralfeed.displayFormError();
+        }
 	});
   },
  

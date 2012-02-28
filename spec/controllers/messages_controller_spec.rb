@@ -20,24 +20,46 @@ describe MessagesController do
     response.body.should == msg.to_json
   end
   
-  it 'should test create' do
-    message = Factory.build(:message)
-    msg_params = message.attributes
-    post 'create', {:message => msg_params}
-    response.should be_success
-    response.body.should_not be_nil
-    Message.find_by_title(msg_params["title"]).should_not be_nil
+  describe '#create' do
+    it 'should create a message successfully' do
+      message = Factory.build(:message)
+      msg_params = message.attributes
+      post 'create', {:message => msg_params}
+      response.should be_success
+      response.body.should_not be_nil
+      Message.find_by_title(msg_params["title"]).should_not be_nil
+    end
+    
+    it 'should not create a message successfully' do
+      message = Factory.build(:message, :title => '', :name => '')
+      msg_params = message.attributes
+      post 'create', {:message => msg_params}
+      response.should_not be_success
+      response.body.should == "{\"title\":[\"can't be blank\"],\"name\":[\"can't be blank\"]}"
+    end
   end
   
-  it 'should test update' do
-    message = Factory(:message)
-    msg_params = message.attributes
-    msg_params["message"] = 'message updated'
-    put 'update', {:message => msg_params , :id => msg_params["id"]}
-    response.should be_success
-    message.reload
-    response.body.should == message.to_json
-    message.message.should == 'message updated'
+  describe '#update' do
+    it 'should update message successfully' do
+       message = Factory(:message)
+       msg_params = message.attributes
+       msg_params["message"] = 'message updated'
+       put 'update', {:message => msg_params , :id => msg_params["id"]}
+       response.should be_success
+       message.reload
+       message.message.should == 'message updated'
+    end
+    
+    it 'should not update message successfully' do
+      message = Factory(:message)
+      msg_params = message.attributes
+      msg_params["message"] = ''
+      put 'update', {:message => msg_params , :id => msg_params["id"]}
+      response.should_not be_success
+      response.body.should == "{\"message\":[\"can't be blank\"]}"
+      message.reload
+      message.message.blank?.should be_false
+    end
   end
   
   it 'should test destroy' do
