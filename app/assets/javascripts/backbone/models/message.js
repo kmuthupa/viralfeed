@@ -3,8 +3,7 @@ Viralfeed.Models.Message = Backbone.Model.extend({
 	defaults: {
 		'title': null,
 		'name': null,
-		'message': null,
-		'posted_at': null
+		'message': null
 	}
 });
 
