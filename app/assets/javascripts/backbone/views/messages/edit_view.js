@@ -16,7 +16,7 @@ Viralfeed.Views.Messages.EditView = Backbone.View.extend ({
 		  window.location.hash = "/"+this.model.id;
 		},
 		error: function(message, jqXHR) {
-          window.Viralfeed.displayFormError();
+          window.Viralfeed.displayFormError(jqXHR.responseText);
         }
 	});
   },
