@@ -1,11 +1,17 @@
 require 'spec_helper'
 
 describe UsersController do
-  it 'should test sign in' do
+  it 'should render sign in' do
     get 'signin'
     response.should be_success
     response.should render_template(:signin)
   end 
+  
+  it 'should redirect to messages page if user signed in' do
+    @controller.stub!(:current_user).and_return(Factory(:user)) #stub authenticated user
+    get 'signin'
+    response.should be_redirect
+  end
   
   describe '#create' do
     it 'should successfully create a new user with twitter oauth credentials' do
@@ -29,12 +35,13 @@ describe UsersController do
     end
   end
   
-  it 'should test sign out' do
+  it 'should render sign out' do
+    @controller.stub!(:current_user).and_return(Factory(:user)) #stub authenticated user
     get 'signout'
     response.should be_redirect
   end
   
-  it 'should test error' do
+  it 'should render error' do
     get 'error'
     response.should be_success
     response.should render_template(:error)
