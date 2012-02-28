@@ -1,6 +1,6 @@
 class UsersController < ApplicationController  
   def signin
-    redirect_to messages_url if current_user
+    redirect_to messages_url if user_signed_in?
   end
 
   def signout
