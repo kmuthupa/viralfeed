@@ -5,22 +5,17 @@
 
 <div class='message-form'>
 <h2>Edit the Posting</h2>
-<form id="new-message" name="message">
-  <div class="field">
+<form id="edit-message" name="message">
+  <div class="left">
     <label for="title"> Title</label>
     <input type="text" name="title" id="title" value="<%= title %>" >
-  </div>
-
-  <div class="field">
     <label for="name"> Name</label>
     <input type="text" name="name" id="name" value="<%= name %>" >
   </div>
-
-  <div class="field">
+  <div class="right">
     <label for="message"> Message</label>
     <textarea name="message" id="message"><%= message %></textarea>
   </div>
-
   <div class="actions">
     <input type="submit" value="Submit"/>
   </div>

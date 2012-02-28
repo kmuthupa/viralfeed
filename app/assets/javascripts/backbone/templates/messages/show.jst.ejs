@@ -4,13 +4,9 @@
 </div>
 
 <div class='message-sink'>
-<p>
-  <h2><%= title %></h2>
-</p>
-<p>
-  <%= name %>
-</p>
-<p>
+<h2><%= title %></h2>
+<i>posted at <%= created_at %></i>
+<p class='message'>
   <%= message %>
 </p>
 <a href="#/<%= id %>/edit" class="edit"><img src='/assets/edit.png' height='24' width='24'></img></a>

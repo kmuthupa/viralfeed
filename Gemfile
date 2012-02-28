@@ -14,6 +14,7 @@ gem 'omniauth-twitter'
 group :development do
   gem "rspec-rails", "~> 2.7"
   gem "active_reload"
+  gem 'awesome_print'
 end
 
 # Gems used only for assets and not required

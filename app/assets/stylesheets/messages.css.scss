@@ -43,12 +43,29 @@
 }
 
 .message-form {
+  h2 {margin-bottom: 10px;}
   margin-top: 5px;
   -moz-border-radius: 7px;
   border-radius: 7px;
   background: #DCDCDC;
   font-size: 2.5em;
   padding: 10px;
+  .left {
+    float: left;
+    width: 35%;
+    input {width: 225px;}
+  }
+  .right {
+    float: right;
+    width: 65%;
+   }
+  .actions {
+    input {width: 200px;}
+  }
+  textarea {
+    width: 95%;
+    height: 75px;
+  }
 }
 
 .message-sink {
@@ -58,5 +75,15 @@
   border-radius: 7px;
   background: #DCDCDC;
   padding: 10px;
+  p.message {
+   font-size: 98%;
+   margin-top: 10px;
+   margin-bottom: 5px; 
+  }
+  a.edit { 
+    position: absolute;
+    top: 200px;
+    right: 325px;
+  }
 }
 
