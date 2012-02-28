@@ -1,5 +1,6 @@
 Viralfeed.Models.Message = Backbone.Model.extend({
 	paramRoot: 'message',
+	
 	defaults: {
 		'title': null,
 		'name': null,

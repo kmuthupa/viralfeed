@@ -5,7 +5,7 @@
 
 <div class='message-sink'>
 <h2><%= title %></h2>
-<i>posted at <%= created_at %></i>
+<i>posted on <%= created_at.replace(created_at.substring(10), '') %></i>
 <p class='message'>
   <%= message %>
 </p>
