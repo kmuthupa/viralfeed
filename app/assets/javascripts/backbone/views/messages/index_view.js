@@ -16,14 +16,20 @@ Viralfeed.Views.Messages.IndexView = Backbone.View.extend ({
 	},
 	
 	addAll: function() {
-		var idx = 0;
-		models_to_remove = this.options.messages.select(function(msg) { return msg.get('title') === null });
-		this.options.messages.remove(models_to_remove);
-		while(idx < this.options.messages.length) {
-			msg = this.options.messages.at(idx);
-			this.addOne(msg);
-			idx++;
-		}		
+		if (this.options.messages.length === 0) {
+			view = new Viralfeed.Views.Messages.NoMessagesView();
+			$(this.el).find(".messages-bar").after(view.render().el);
+		}
+		else {
+			var idx = 0;
+			models_to_remove = this.options.messages.select(function(msg) { return msg.get('title') === null });
+			this.options.messages.remove(models_to_remove);
+			while(idx < this.options.messages.length) {
+				msg = this.options.messages.at(idx);
+				this.addOne(msg);
+				idx++;
+			}
+		}
 	},
 
 	render: function() {
